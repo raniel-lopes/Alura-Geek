@@ -82,19 +82,20 @@ header .heart {
     display: flex;
     padding: 10px;
     flex-direction: column;
-    text-align: center;
     align-items: center;
     gap: 10px;
+    text-align: left;
     border-radius: 10px;
     border: 3px solid #605EA1;
     background: var(--cor-secundaria);
     box-shadow: -5px 6px 3.3px 0px rgba(0, 0, 0, 0.25);
     width: 196px;
     /* Definindo uma largura fixa */
-    height: 258px;
     /* Definindo uma altura fixa */
     transition: transform 0.3s ease-in-out;
+    box-sizing: border-box;
     /* Transição para o efeito de hover */
+    padding: 10px;
 }
 
 .produto-card:hover {
@@ -103,14 +104,31 @@ header .heart {
 }
 
 .produto-card img {
+    display: flex;
+    align-items: center;
     height: 176px;
     width: 176px;
     object-fit: cover;
-    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 3px solid #605EA1;
 }
 
+
 .produto-card p {
-    display: flex;
-    font-size: 16px;
     color: var(--cor-primaria);
+    font-family: "IBM Plex Mono", system-ui;
+    font-size: 15px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: left;
+}
+
+.produto-card h4 {
+    color: #E6E9AF;
+    font-family: "IBM Plex Mono", system-ui;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
 }
