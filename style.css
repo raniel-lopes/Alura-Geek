@@ -163,3 +163,98 @@ header .heart {
     transform: scale(1.1);
     /* Amplia levemente a lixeira ao passar o mouse */
 }
+
+.adicionar-produto {
+    width: 472px;
+    text-align: center;
+    background-color: var(--cor-primaria);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.adicionar-produto h2 {
+    color: var(--cor-secundaria);
+    font-family: "Press Start 2P", system-ui;
+    font-size: 24px;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    text-align: center;
+}
+
+.adicionar-produto form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.adicionar-produto input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--cor-secundaria);
+    border-radius: 25px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    outline: none;
+}
+
+.adicionar-produto input::placeholder {
+    color: var(--cor-secundaria);
+}
+
+.upload-label {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border: 2px solid var(--cor-secundaria);
+    border-radius: 25px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 16px;
+    font-weight: 600;
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+    cursor: pointer;
+}
+
+.upload-label:hover {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+}
+
+.adicionar-produto .botoes {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    /* Para ocupar toda a largura do formulário */
+    gap: 10px;
+    /* Espaçamento entre os botões */
+}
+
+.adicionar-produto button {
+    flex: 1;
+    /* Para os botões terem tamanhos iguais */
+    padding: 10px;
+    border: 2px solid var(--cor-secundaria);
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: capitalize;
+    cursor: pointer;
+}
+
+.guardar {
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+}
+
+.limpar {
+    background-color: var(--cor-primaria);
+    color: var(--cor-secundaria);
+}
+
+.adicionar-produto button:hover {
+    opacity: 0.8;
+}
