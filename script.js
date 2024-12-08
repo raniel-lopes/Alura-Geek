@@ -46,4 +46,60 @@ const adicionarProduto = (nome, valor, imagem) => {
     valor: valor, // Valor do produto
     imagem: imagem, // URL da imagem do produto
   };
+
+  // Envia o produto para a API via POST
+  fetch(apiUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json", // Define o tipo de conteúdo como JSON
+    },
+    body: JSON.stringify(novoProduto), // Converte o produto para uma string JSON
+  })
+    .then((response) => response.json()) // Converte a resposta em JSON
+    .then((data) => {
+      console.log("Produto adicionado:", data); // Log do produto adicionado
+      carregarProdutos();
+    })
+    .catch((error) => {
+      console.error("Erro ao adicionar o produto", error); // Exibe um erro caso algo dê errado
+    });
 };
+
+// Função para remover um produto
+const removerProduto = (id) => {
+  fetch(`${apiUrl}/${id}`, {
+    method: "DELETE", // Faz uma requisição DELETE para remover o produto
+  })
+    .then(() => {
+      console.log("Produto removido"); // Log do produto removido
+      carregarProdutos(); // Atualiza a lista de produtos
+    })
+    .catch((erro) => {
+      console.error("Erro ao remover produto: ", error); // Exibe um erro caso algo dê errado
+    });
+};
+
+// Evento de envio do formulário para adicionar produtos
+document.querySelector("form").addEventListener("submit", (event) => {
+  event.preventDefault(); // Impede o envio padrão do formulário
+
+  const nome = document.getElementById("nome").value; // Pega o valor do campo de nome
+  const valor = document.getElementById("valor").value; // Pega o valor do campo de valor
+  const imagem = document.getElementById("imagem").files[0]; // Pega a imagem selecionada
+
+  // Converte a imagem em uma URL base64 para exibir no frontend
+  let imagemURL = "";
+  if (imagem) {
+    const reader = new FileReader();
+    reader.onloadend = function () {
+      imagemURL = reader.result;
+      adicionarProduto(nome, valor, imagemURL); //Adiciona o produto após a conversão da imagem
+    };
+    reader.readAsDataURL(imagem); // Lê a imagem como URL base64
+  } else {
+    adicionarProduto(nome, valor, imagemURL); // Adiciona o produto mesmo sem imagem
+  }
+});
+
+// Carrega os produtos ao carregar a página
+window.addEventListener("load", carregarProdutos);

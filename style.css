@@ -339,7 +339,7 @@ footer p {
         /* Limita largura com espaçamento */
         margin: 0 auto 20px;
         /* Centraliza e adiciona margem inferior */
-        max-width: 472px;
+
         /* Máximo que pode alcançar */
         order: -1;
 
@@ -350,7 +350,7 @@ footer p {
         grid-template-columns: repeat(2, 1fr);
         /* 2 colunas */
         gap: 20px;
-        width: calc(100% - 40px);
+        width: calc(100% - 5rem);
         /* Garante espaçamento lateral */
         margin: 0 auto;
         /* Centraliza */
